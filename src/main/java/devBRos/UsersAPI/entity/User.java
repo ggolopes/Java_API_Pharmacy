@@ -1,3 +1,11 @@
+/*  User.java - REST_API_Users - Code challenge for ThinkOn
+**  User class
+**  Guilherme de Goes Oliveira Lopes
+**
+**  Revision History
+**      Guilherme Lopes, 2024.10.10: Created
+*/
+
 package devBRos.UsersAPI.entity;
 
 import jakarta.persistence.Entity;
@@ -9,7 +17,7 @@ import jakarta.persistence.Id;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto increment value
     private long id;
     private String username;
     private String firstname;
@@ -18,7 +26,7 @@ public class User {
     private String phone;
 
     // Getters e Setters
-    
+
     public long getId() {
         return id;
     }
@@ -66,6 +74,5 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
 
 }

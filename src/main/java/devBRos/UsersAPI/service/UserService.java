@@ -1,3 +1,11 @@
+/*  UserService.java - REST_API_Users - Code challenge for ThinkOn
+**  UserService class to User model/entity 
+**  Guilherme de Goes Oliveira Lopes
+**
+**  Revision History
+**      Guilherme Lopes, 2024.10.10: Created
+*/
+
 package devBRos.UsersAPI.service;
 
 import java.util.List;
@@ -14,22 +22,27 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    // get all users
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
+    // get a user by id
     public Optional<User> getUserById(Long id) {
         return  userRepository.findById(id);
     }
 
+    // get a user by email
     public  Optional<User> getUserByEmail (String email) {
         return userRepository.findByEmail(email);
     }
 
+    // create a new user
     public User createUser(User user) {
         return userRepository.save(user);
     }
 
+    // update a user by id
     public User updateUser (Long id, User userDetails) {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
         user.setUsername(userDetails.getUsername());
@@ -40,6 +53,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    // delete a user by id
     public void deleteUser (Long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
         userRepository.delete(user);
