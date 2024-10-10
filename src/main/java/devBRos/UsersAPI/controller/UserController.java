@@ -32,10 +32,10 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-    @GetMapping("/email/{email}")
-    public Optional<User> getUserByEmail(@PathVariable String email) {
-        return userService.getUserByEmail(email);
-    }
+    // @GetMapping("/email/{email}")
+    // public Optional<User> getUserByEmail(@PathVariable String email) {
+    //     return userService.getUserByEmail(email);
+    // }
 
     @PostMapping
     public User creatUser(@RequestBody User user) {
