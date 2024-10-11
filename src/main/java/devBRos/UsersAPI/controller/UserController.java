@@ -4,7 +4,12 @@
 **
 **  Revision History
 **      Guilherme Lopes, 2024.10.10: Created
+**      Guilherme Lopes, 2024.10.11: Modified
+            routes to /api/users/email/{email} fot PUT and DELETE methods added.
 
+
+OBS:  I took the liberty to add find by email users into the REST API.
+ 
 
     Route                       Method      Functionality
 ----------------------------------------------------------------------

@@ -39,10 +39,12 @@ public class UserService {
 
     // create a new user
     public User createUser(User user) {
-        if (userRepository.findByEmail(user.getEmail()) != null) {
+        Optional<User> checkUser = userRepository.findByEmail(user.getEmail());
+        if (checkUser.isPresent()) {
             throw new RuntimeException("email already used");
+        } else {
+            return userRepository.save(user);
         }
-        return userRepository.save(user);
     }
 
     // update a user by id
