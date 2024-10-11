@@ -6,14 +6,17 @@
 **      Guilherme Lopes, 2024.10.10: Created
 
 
-    Route               Method      Functionality
-------------------------------------------------------------
-    /api/users          GET         get all users
-    /api/users          POST        create a new user
-    /api/users/{id}     GET         get a user by id
-    /api/users/{id}     PUT         update a user by id
-    /api/users/{id}     DELETE      delete a user by id
-------------------------------------------------------------
+    Route                       Method      Functionality
+----------------------------------------------------------------------
+    /api/users                  GET         get all users
+    /api/users                  POST        create a new user
+    /api/users/{id}             GET         get a user by id
+    /api/users/{id}             PUT         update a user by id
+    /api/users/{id}             DELETE      delete a user by id
+    /api/users/email/{email}    GET         get a user by email
+    /api/users/email/{email}    PUT         update a user by email
+    /api/users/email/{email}    DELETE      delete a user by email
+----------------------------------------------------------------------
 */
 
 package devBRos.UsersAPI.controller;
@@ -60,19 +63,31 @@ public class UserController {
 
     // route to POST method for URL: "/api/users" - create a new user 
     @PostMapping
-    public User creatUser(@RequestBody User user) {
+    public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
-    // route to PU method for URL: "/api/users/{id}" - update a user by id
+    // route to PUT method for URL: "/api/users/{id}" - update a user by id
     @PutMapping("/{id}")
-    public User updatUser(@PathVariable Long id, @RequestBody User userDetails) {
+    public User updateUser(@PathVariable Long id, @RequestBody User userDetails) {
         return userService.updateUser(id, userDetails);
+    }
+
+    // route to PUT method for URL: "/api/users/email/{email}" - update a user by email
+    @PutMapping("/email/{email}")
+    public User updateUser(@PathVariable String email, @RequestBody User userDetails) {
+        return userService.updateUser(email, userDetails);
     }
 
     // route to DELETE method for URL: "/api/users/{id}" - delete a user by id
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
+    }
+
+    // route to DELETE method for URL: "/api/users/email{email}" - delete a user by email
+    @DeleteMapping("/email/{email}")
+    public void deleteUser(@PathVariable String email) {
+        userService.deleteUser(email);
     }
 }
