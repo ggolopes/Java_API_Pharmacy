@@ -4,6 +4,16 @@
 **
 **  Revision History
 **      Guilherme Lopes, 2024.10.10: Created
+
+
+    Route               Method      Functionality
+------------------------------------------------------------
+    /api/users          GET         get all users
+    /api/users          POST        create a new user
+    /api/users/{id}     GET         get a user by id
+    /api/users/{id}     PUT         update a user by id
+    /api/users/{id}     DELETE      delete a user by id
+------------------------------------------------------------
 */
 
 package devBRos.UsersAPI.controller;
